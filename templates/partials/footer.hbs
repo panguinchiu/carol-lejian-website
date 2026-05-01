@@ -1,0 +1,40 @@
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="site-footer__grid">
+      <div class="site-footer__brand">
+        <h3>{{global.brandName}}</h3>
+        <p class="site-footer__brand-en">{{global.brandNameEn}}</p>
+        <p>
+          {{global.practitionerName}} ── QHHT 量子催眠高階執照<br>
+          NGH 古典催眠教授執照<br>
+          {{global.practiceSince}} 年起執業
+        </p>
+      </div>
+
+      <div class="site-footer__col">
+        <h4>服務資訊</h4>
+        <p>{{global.location}}</p>
+        <p style="margin-top: 0.5rem; color: var(--text-muted-on-dark); font-size: 0.85rem;">{{global.serviceFormat}}</p>
+      </div>
+
+      <div class="site-footer__col">
+        <h4>聯繫</h4>
+        <ul>
+          <li><a href="{{global.igUrl}}" target="_blank" rel="noopener">Instagram {{global.igHandle}}</a></li>
+          {{#if global.email}}<li><a href="mailto:{{global.email}}">{{global.email}}</a></li>{{/if}}
+          <li><a href="/contact.html">預約聯繫</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="site-footer__bottom">
+      <p>© 2026 {{global.brandNameEn}}. All rights reserved.</p>
+      <p>最後更新：{{global.lastUpdated}}</p>
+    </div>
+
+    <p class="admin-entry"><a href="/admin/">管理</a></p>
+  </div>
+</footer>
+
+<script src="/js/main.js" defer></script>
+<script src="/js/scroll-reveal.js" defer></script>

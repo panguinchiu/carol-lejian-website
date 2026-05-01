@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+{{> head}}
+</head>
+<body class="page-faq">
+<a class="skip-link" href="#main">跳至主內容</a>
+{{> header}}
+
+<main id="main">
+
+  <header class="page-hero">
+    <div class="container">
+      <span class="page-hero__eyebrow">常見問答</span>
+      <h1 class="page-hero__title page-hero__title--cn">在預約之前</h1>
+      <div class="poetic-text poetic-text--lg" style="margin-top: var(--space-md);">
+        {{{poeticLines intro}}}
+      </div>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container container--narrow">
+      {{#each categories}}
+        <div class="faq-category reveal">
+          <p class="faq-category__name">{{name}}</p>
+          {{#each questions}}
+            <details class="faq-item" id="{{id}}">
+              <summary>{{question}}</summary>
+              <div class="faq-answer">
+                <p class="faq-bluf">{{bluf}}</p>
+                <div class="poetic-text">
+                  {{{poeticLines answer}}}
+                </div>
+              </div>
+            </details>
+          {{/each}}
+        </div>
+      {{/each}}
+    </div>
+  </section>
+
+  <section class="section section--ivory-light">
+    <div class="container container--narrow" style="text-align: center;">
+      <div class="poetic-text poetic-text--center reveal" style="font-size: clamp(1.1rem, 1.6vw, 1.3rem);">
+        <p>還有其他問題？</p>
+        <p>歡迎透過 IG 私訊與 Carol 聯繫</p>
+      </div>
+      <a href="/contact.html" class="btn btn--primary" style="margin-top: var(--space-md);">
+        預約聯繫
+        <span class="btn__arrow" aria-hidden="true">→</span>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {{#each categories}}
+      {{#each questions}}
+        {
+          "@type": "Question",
+          "name": {{{jsonInline question}}},
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": {{{jsonInline bluf}}}
+          }
+        }{{#unless @last}},{{/unless}}
+      {{/each}}{{#unless @last}},{{/unless}}
+    {{/each}}
+  ]
+}
+</script>
+
+<script src="/js/accordion.js" defer></script>
+{{> footer}}
+</body>
+</html>

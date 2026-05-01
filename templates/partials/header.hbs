@@ -1,0 +1,36 @@
+<header class="site-header" role="banner">
+  <div class="container site-header__inner">
+    <a href="/" class="site-logo" aria-label="{{global.brandName}} 首頁">
+      <span class="site-logo__cn">樂見</span>
+      <span class="site-logo__en">LE JIAN</span>
+    </a>
+
+    <nav class="site-nav" aria-label="主導航">
+      <ul class="site-nav__list">
+        <li><a class="site-nav__link {{#if (eq page 'home')}}site-nav__link--active{{/if}}" href="/">首頁</a></li>
+        <li><a class="site-nav__link {{#if (eq page 'qhht')}}site-nav__link--active{{/if}}" href="/qhht.html">關於量子催眠</a></li>
+        <li><a class="site-nav__link {{#if (eq page 'about')}}site-nav__link--active{{/if}}" href="/about.html">關於 Carol</a></li>
+        <li><a class="site-nav__link {{#if (eq page 'service')}}site-nav__link--active{{/if}}" href="/service.html">服務流程</a></li>
+        <li><a class="site-nav__link {{#if (eq page 'faq')}}site-nav__link--active{{/if}}" href="/faq.html">常見問答</a></li>
+        <li><a class="site-nav__link {{#if (eq page 'training')}}site-nav__link--active{{/if}}" href="/training.html">學習與培訓</a></li>
+        <li><a class="site-nav__link {{#if (eq page 'contact')}}site-nav__link--active{{/if}}" href="/contact.html">預約聯繫</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" type="button" aria-label="開啟選單" aria-expanded="false" aria-controls="nav-drawer">
+      <span class="nav-toggle__bar" aria-hidden="true"></span>
+    </button>
+  </div>
+</header>
+
+<div id="nav-drawer" class="nav-drawer" aria-label="行動端選單">
+  <ul class="nav-drawer__list">
+    <li><a class="nav-drawer__link" href="/">首頁</a></li>
+    <li><a class="nav-drawer__link" href="/qhht.html">關於量子催眠</a></li>
+    <li><a class="nav-drawer__link" href="/about.html">關於 Carol</a></li>
+    <li><a class="nav-drawer__link" href="/service.html">服務流程</a></li>
+    <li><a class="nav-drawer__link" href="/faq.html">常見問答</a></li>
+    <li><a class="nav-drawer__link" href="/training.html">學習與培訓</a></li>
+    <li><a class="nav-drawer__link" href="/contact.html">預約聯繫</a></li>
+  </ul>
+</div>

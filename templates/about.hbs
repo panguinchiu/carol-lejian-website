@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+{{> head}}
+</head>
+<body class="page-about">
+<a class="skip-link" href="#main">跳至主內容</a>
+{{> header}}
+
+<main id="main">
+
+  <header class="page-hero">
+    <div class="container">
+      <span class="page-hero__eyebrow">關於 Carol</span>
+      <h1 class="page-hero__title page-hero__title--cn">{{title}}</h1>
+      <p class="page-hero__subtitle">{{subtitle}}</p>
+      <p class="aeo-text" style="margin-top: var(--space-lg);">{{aeoIntro}}</p>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container">
+      <div class="split split--text-first">
+        <div class="reveal">
+          <div class="poetic-text poetic-text--lg">
+            {{{poeticLines intro}}}
+          </div>
+        </div>
+        <div class="about-portrait reveal reveal--delay-1">
+          <div class="image-frame">
+            <img src="{{studioImage}}" alt="{{studioAlt}}" onerror="this.style.display='none'; this.parentElement.textContent='工作室情境照（待補）';">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="mid-quote reveal">
+    <div class="container">
+      <p class="mid-quote__text">
+        {{#each midQuote}}
+          <span>— {{this}}</span>
+        {{/each}}
+      </p>
+    </div>
+  </div>
+
+  <section class="section section--ivory-light">
+    <div class="container container--narrow">
+      <div class="reveal">
+        <span class="eyebrow">— 專業背景 —</span>
+        <div class="poetic-text poetic-text--lg" style="margin-top: var(--space-md);">
+          {{{poeticLines credentialsBlock}}}
+        </div>
+      </div>
+
+      <div class="cert-grid reveal reveal--delay-1">
+        {{#each certImages}}
+          <div class="image-frame">
+            <img src="{{src}}" alt="{{alt}}" onerror="this.style.display='none'; this.parentElement.textContent='{{alt}}（待提供）';">
+          </div>
+        {{/each}}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container container--narrow">
+      <div class="reveal">
+        <span class="eyebrow">— 工作哲學 —</span>
+        <div class="poetic-text poetic-text--lg" style="margin-top: var(--space-md);">
+          {{{poeticLines philosophy}}}
+        </div>
+      </div>
+
+      <div class="reveal reveal--delay-1" style="margin-top: var(--space-2xl);">
+        <span class="eyebrow">— 我的角色 —</span>
+        <div class="poetic-text poetic-text--lg" style="margin-top: var(--space-md);">
+          {{{poeticLines role}}}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--ivory-light">
+    <div class="container container--narrow" style="text-align: center;">
+      <div class="poetic-text poetic-text--lg poetic-text--center reveal">
+        {{{poeticLines closing}}}
+      </div>
+      <a href="/contact.html" class="btn btn--primary" style="margin-top: var(--space-lg);">
+        預約諮詢
+        <span class="btn__arrow" aria-hidden="true">→</span>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "{{global.practitionerName}}",
+  "jobTitle": "QHHT 量子催眠高階認證催眠師",
+  "description": "{{aeoIntro}}",
+  "hasCredential": [
+    {
+      "@type": "EducationalOccupationalCredential",
+      "name": "QHHT 量子催眠高階執照",
+      "credentialCategory": "certification"
+    },
+    {
+      "@type": "EducationalOccupationalCredential",
+      "name": "NGH 古典催眠教授執照",
+      "credentialCategory": "certification"
+    }
+  ],
+  "worksFor": {
+    "@type": "ProfessionalService",
+    "name": "{{global.brandName}}"
+  }
+}
+</script>
+
+{{> footer}}
+</body>
+</html>

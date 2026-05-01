@@ -1,0 +1,105 @@
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 clamp(1.25rem, 4vw, 3rem);
+}
+
+.container--narrow {
+  max-width: var(--container-narrow);
+}
+
+.container--text {
+  max-width: var(--container-text);
+}
+
+.section {
+  padding-top: var(--section-py);
+  padding-bottom: var(--section-py);
+}
+
+.section--lg {
+  padding-top: var(--section-py-lg);
+  padding-bottom: var(--section-py-lg);
+}
+
+.section--sm {
+  padding-top: clamp(3rem, 6vw, 5rem);
+  padding-bottom: clamp(3rem, 6vw, 5rem);
+}
+
+.section--no-pad-top {
+  padding-top: 0;
+}
+
+.section--no-pad-bottom {
+  padding-bottom: 0;
+}
+
+.section--ivory-light {
+  background-color: var(--ivory-sand-light);
+  background-image: var(--grain-bg), var(--contours-bg), var(--grid-bg);
+  background-size: var(--grain-size) var(--grain-size), 100% 100vh, 48px 48px;
+  background-position: 0 0, 0 0, 0 0;
+  background-repeat: repeat, no-repeat, repeat;
+  background-attachment: scroll, fixed, fixed;
+}
+
+.section--dark {
+  background: var(--deep-charcoal);
+  color: var(--text-on-dark);
+}
+
+.section--dark .section-title,
+.section--dark .display,
+.section--dark .lede,
+.section--dark .quote {
+  color: var(--text-on-dark);
+}
+
+.section--dark .aeo-text {
+  color: var(--text-muted-on-dark);
+}
+
+.section--dark a {
+  color: var(--text-on-dark);
+}
+
+/* Two-column layout (text + image / sidebar) */
+.split {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+  align-items: center;
+}
+
+@media (min-width: 800px) {
+  .split {
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(3rem, 6vw, 6rem);
+  }
+  .split--text-first { grid-template-columns: 1.1fr 0.9fr; }
+  .split--image-first { grid-template-columns: 0.9fr 1.1fr; }
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.stack--sm { gap: var(--space-sm); }
+.stack--lg { gap: var(--space-lg); }
+
+.divider {
+  width: 48px;
+  height: 1px;
+  background: var(--border);
+  margin: var(--space-md) 0;
+  border: 0;
+}
+
+.section--dark .divider {
+  background: var(--charcoal-soft);
+  background: rgba(245, 240, 232, 0.2);
+}

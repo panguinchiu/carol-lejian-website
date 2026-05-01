@@ -1,0 +1,93 @@
+:root {
+  /* ─── Primary Palette ─── */
+  --ivory-sand:        #F5F0E8;
+  --ivory-sand-light:  #FAF7F2;
+
+  /* ─── Accent ─── */
+  --deep-petrol-teal:  #2A6B6B;
+  --teal-light:        #3A8585;
+
+  /* ─── Neutral ─── */
+  --smoked-mineral:    #6B6B6B;
+  --warm-silver:       #A8A09A;
+
+  /* ─── Dark (Smoked Mineral Grey 礦石灰) ─── */
+  --deep-charcoal:     #2D3338;   /* dark mineral grey, primary dark surface */
+  --charcoal-soft:     #3A4045;   /* slightly lighter mineral */
+  --mineral-darker:    #1F2326;   /* deepest tone for gradient base */
+  --mineral-dark:      #2D3338;
+  --mineral-soft:      #3A4045;
+  --mineral-light:     #5C6166;
+
+  /* ─── Text ─── */
+  --text-primary:      #2D3338;   /* aligned with mineral palette */
+  --text-secondary:    #6B6B6B;
+  --text-on-dark:      #F5F0E8;
+  --text-muted-on-dark: #A8A09A;
+
+  /* ─── Functional ─── */
+  --border:            #D9D3CB;
+  --border-soft:       #E6E0D7;
+  --shadow:            0 1px 2px rgba(44, 40, 37, 0.04), 0 8px 24px rgba(44, 40, 37, 0.06);
+  --shadow-lg:         0 4px 8px rgba(44, 40, 37, 0.06), 0 24px 48px rgba(44, 40, 37, 0.10);
+
+  /* ─── Typography (modern thin sans-serif) ─── */
+  --font-display:  'Inter', 'Noto Sans TC', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+  --font-body:     'Noto Sans TC', 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+  --font-caption:  'Inter', 'Noto Sans TC', -apple-system, sans-serif;
+
+  --text-hero:     clamp(2rem, 4.8vw, 3.6rem);
+  --text-h1:       clamp(2rem, 4vw, 3rem);
+  --text-h2:       clamp(1.5rem, 3vw, 2.25rem);
+  --text-h3:       clamp(1.2rem, 2vw, 1.5rem);
+  --text-body:     clamp(1rem, 1.2vw, 1.125rem);
+  --text-small:    0.875rem;
+  --text-caption:  0.75rem;
+
+  --lh-tight:      1.25;
+  --lh-normal:     1.55;
+  --lh-relaxed:    1.65;
+
+  --ls-tight:      0.02em;
+  --ls-normal:     0.05em;
+  --ls-wide:       0.12em;
+
+  /* ─── Spacing ─── */
+  --space-xs:      0.4rem;
+  --space-sm:      0.75rem;
+  --space-md:      1.4rem;
+  --space-lg:      2.5rem;
+  --space-xl:      3.75rem;
+  --space-2xl:     5rem;
+  --space-3xl:     6rem;
+
+  --section-py:    clamp(3rem, 6vw, 6rem);
+  --section-py-lg: clamp(4rem, 8.5vw, 8.5rem);
+
+  /* ─── Container ─── */
+  --container-max: 1200px;
+  --container-narrow: 720px;
+  --container-text: 580px;
+
+  /* ─── Header ─── */
+  --header-h: 72px;
+
+  /* ─── Motion ─── */
+  --ease-out:      cubic-bezier(0.22, 1, 0.36, 1);
+  --transition:    0.4s var(--ease-out);
+
+  /* ─── Layered background textures (multi-bg parallax, à la CSS Zen Garden) ─── */
+
+  /* Layer 1: SVG fractal noise — paper grain. Scrolls with content. */
+  --grain-bg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch' seed='5'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --grain-size: 220px;
+
+  /* Layer 2: soft horizontal contour curves (organic depth). Fixed to viewport. */
+  --contours-bg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 1000' preserveAspectRatio='none'%3E%3Cg fill='none' stroke='%232a6b6b' stroke-width='1' opacity='0.07'%3E%3Cpath d='M0,180 Q400,120 800,180 T1600,180'/%3E%3Cpath d='M0,360 Q400,300 800,360 T1600,360'/%3E%3Cpath d='M0,540 Q400,480 800,540 T1600,540'/%3E%3Cpath d='M0,720 Q400,660 800,720 T1600,720'/%3E%3Cpath d='M0,900 Q400,840 800,900 T1600,900'/%3E%3C/g%3E%3C/svg%3E");
+
+  /* Layer 3: subtle grid lines (geometric structure). Fixed to viewport. */
+  --grid-bg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48'%3E%3Cpath d='M 48 0 L 0 0 0 48' fill='none' stroke='%232c2825' stroke-width='0.5' opacity='0.045'/%3E%3C/svg%3E");
+
+  /* For dark surfaces — contours rendered in pale ivory */
+  --contours-dark-bg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 1000' preserveAspectRatio='none'%3E%3Cg fill='none' stroke='%23f5f0e8' stroke-width='1' opacity='0.06'%3E%3Cpath d='M0,180 Q400,120 800,180 T1600,180'/%3E%3Cpath d='M0,360 Q400,300 800,360 T1600,360'/%3E%3Cpath d='M0,540 Q400,480 800,540 T1600,540'/%3E%3Cpath d='M0,720 Q400,660 800,720 T1600,720'/%3E%3Cpath d='M0,900 Q400,840 800,900 T1600,900'/%3E%3C/g%3E%3C/svg%3E");
+}

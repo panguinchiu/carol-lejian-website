@@ -1,0 +1,396 @@
+/* ─────────── Page Hero (non-home pages) ─────────── */
+.page-hero {
+  padding-top: calc(var(--header-h) + var(--space-2xl));
+  padding-bottom: var(--space-lg);
+  background: var(--ivory-sand-light);
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.page-hero__eyebrow {
+  font-family: var(--font-caption);
+  font-size: var(--text-caption);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: var(--smoked-mineral);
+  margin-bottom: var(--space-sm);
+  display: block;
+}
+
+.page-hero__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 200;
+  line-height: 1.35;
+  letter-spacing: var(--ls-normal);
+  color: var(--text-primary);
+  max-width: 900px;
+  margin-bottom: var(--space-md);
+}
+
+.page-hero__title--cn {
+  font-family: var(--font-body);
+  font-weight: 300;
+}
+
+.page-hero__subtitle {
+  font-family: var(--font-body);
+  font-size: clamp(1.05rem, 1.6vw, 1.3rem);
+  line-height: 1.8;
+  color: var(--text-secondary);
+  max-width: 720px;
+}
+
+/* ─────────── Home: Section 6 (dark statement) ─────────── */
+.statement {
+  background-image:
+    var(--contours-dark-bg),
+    radial-gradient(ellipse at 50% 30%, rgba(58, 133, 133, 0.10), transparent 65%),
+    radial-gradient(ellipse at 30% 80%, rgba(168, 160, 154, 0.06), transparent 60%),
+    linear-gradient(180deg, var(--mineral-darker) 0%, var(--mineral-dark) 50%, var(--mineral-soft) 100%);
+  background-size: 100% 100vh, auto, auto, auto;
+  background-attachment: fixed, scroll, scroll, scroll;
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+  color: var(--text-on-dark);
+  padding: var(--section-py-lg) 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.statement::before,
+.statement::after {
+  content: '';
+  position: absolute;
+  width: 100vw;
+  height: 1px;
+  left: 0;
+  background: rgba(245, 240, 232, 0.1);
+}
+.statement::before { top: 0; }
+.statement::after { bottom: 0; }
+
+.statement__text {
+  font-family: var(--font-display);
+  font-weight: 200;
+  font-size: clamp(1.6rem, 4vw, 2.8rem);
+  line-height: 1.55;
+  letter-spacing: var(--ls-normal);
+  color: var(--text-on-dark);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.statement__text span {
+  display: block;
+}
+
+.statement__text span + span { margin-top: 0.2em; }
+
+/* ─────────── Home checklist ─────────── */
+.home-checklist-footer {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2.4vw, 1.85rem);
+  line-height: 1.5;
+  color: var(--deep-petrol-teal);
+  margin-top: var(--space-lg);
+  letter-spacing: var(--ls-tight);
+}
+
+/* ─────────── Home closing CTA section ─────────── */
+.closing-cta {
+  text-align: center;
+}
+
+.closing-cta .poetic-text {
+  margin: 0 auto var(--space-lg);
+  text-align: center;
+  font-size: clamp(1.15rem, 1.8vw, 1.4rem);
+  line-height: 2;
+}
+
+/* ─────────── QHHT page ─────────── */
+.qhht-section {
+  margin-bottom: var(--space-2xl);
+}
+
+.qhht-section:last-child { margin-bottom: 0; }
+
+.qhht-section__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.36rem, 2.55vw, 1.91rem);
+  margin-bottom: var(--space-md);
+  letter-spacing: var(--ls-tight);
+  font-weight: 300;
+  position: relative;
+  padding-bottom: 0.75rem;
+}
+
+.qhht-section__title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 32px;
+  height: 1px;
+  background: var(--deep-petrol-teal);
+}
+
+/* (qhht type tweaks moved to global in typography.css) */
+
+.compare-pair {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+  margin: var(--space-lg) 0;
+}
+
+@media (min-width: 800px) {
+  .compare-pair {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+  }
+}
+
+.compare-card {
+  padding: var(--space-md) 0;
+}
+
+.compare-card__label {
+  font-family: var(--font-caption);
+  font-size: var(--text-caption);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: var(--smoked-mineral);
+  margin-bottom: 1rem;
+}
+
+.compare-card--qhht .compare-card__label {
+  color: var(--deep-petrol-teal);
+}
+
+.compare-card__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2.4vw, 1.85rem);
+  margin-bottom: var(--space-md);
+  font-weight: 400;
+}
+
+/* Mid quote (between sections) */
+.mid-quote {
+  text-align: center;
+  padding: var(--space-2xl) 0;
+  margin: 0 auto;
+}
+
+.mid-quote__text {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3vw, 2.25rem);
+  line-height: 1.6;
+  color: var(--deep-petrol-teal);
+  letter-spacing: var(--ls-tight);
+  max-width: 720px;
+  margin: 0 auto;
+  font-weight: 300;
+}
+
+.mid-quote__text span { display: block; }
+
+/* Closing quote with fire emoji marker */
+.qhht-closing {
+  background: var(--ivory-sand-light);
+  text-align: center;
+  padding: var(--section-py) 0;
+  border-top: 1px solid var(--border-soft);
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.qhht-closing__text {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  line-height: 1.6;
+  color: var(--text-primary);
+  max-width: 720px;
+  margin: 0 auto;
+  letter-spacing: var(--ls-tight);
+  font-weight: 300;
+}
+
+.qhht-closing__text span { display: block; }
+
+/* ─────────── About page ─────────── */
+.about-portrait {
+  position: relative;
+}
+
+.about-credentials {
+  margin-top: var(--space-md);
+}
+
+/* ─────────── Service page ─────────── */
+.phase-stack {
+  margin-top: var(--space-lg);
+}
+
+.reassurance-block {
+  background: var(--ivory-sand-light);
+  border-left: 2px solid var(--deep-petrol-teal);
+  padding: var(--space-lg);
+  margin-top: var(--space-2xl);
+}
+
+.reassurance-block__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 2.2vw, 1.6rem);
+  margin-bottom: var(--space-md);
+  letter-spacing: var(--ls-tight);
+  font-weight: 400;
+}
+
+/* ─────────── FAQ page ─────────── */
+.faq-intro {
+  margin-bottom: var(--space-2xl);
+}
+
+/* ─────────── Training page ─────────── */
+.training-hero {
+  background: linear-gradient(180deg, var(--mineral-darker) 0%, var(--mineral-dark) 60%, var(--mineral-soft) 100%);
+  color: var(--text-on-dark);
+  padding: calc(var(--header-h) + var(--space-2xl)) 0 var(--section-py);
+  position: relative;
+  overflow: hidden;
+}
+
+.training-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    var(--contours-dark-bg),
+    radial-gradient(ellipse at 70% 30%, rgba(58, 133, 133, 0.20), transparent 60%),
+    radial-gradient(ellipse at 20% 80%, rgba(168, 160, 154, 0.12), transparent 60%);
+  background-size: 100% 100vh, auto, auto;
+  background-position: 0 0, center, center;
+  background-repeat: no-repeat, no-repeat, no-repeat;
+  background-attachment: fixed, scroll, scroll;
+  pointer-events: none;
+}
+
+.training-hero__inner {
+  position: relative;
+  z-index: 1;
+}
+
+.training-hero__title {
+  font-family: var(--font-display);
+  font-weight: 200;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  line-height: 1.4;
+  letter-spacing: var(--ls-normal);
+  color: var(--text-on-dark);
+  margin-bottom: var(--space-md);
+  max-width: 900px;
+}
+
+.training-hero__title span { display: block; }
+
+.training-hero__subtitle {
+  font-family: var(--font-body);
+  font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+  color: var(--text-on-dark);
+  opacity: 0.85;
+  max-width: 720px;
+  margin-bottom: var(--space-md);
+  line-height: 1.7;
+}
+
+.training-section {
+  margin-bottom: var(--space-2xl);
+}
+
+.training-section__number {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  letter-spacing: var(--ls-wide);
+  color: var(--deep-petrol-teal);
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.training-section__title {
+  font-family: var(--font-body);
+  font-size: clamp(1.4rem, 2.4vw, 1.85rem);
+  font-weight: 300;
+  margin-bottom: var(--space-md);
+  letter-spacing: var(--ls-normal);
+}
+
+.training-info-card {
+  background: var(--ivory-sand-light);
+  padding: var(--space-lg);
+  border-top: 1px solid var(--border-soft);
+}
+
+/* ─────────── Contact page ─────────── */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-2xl);
+}
+
+@media (min-width: 800px) {
+  .contact-grid { grid-template-columns: 1.2fr 1fr; gap: var(--space-2xl); }
+}
+
+.contact-channel {
+  border-bottom: 1px solid var(--border);
+  padding: var(--space-md) 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.contact-channel__label {
+  font-family: var(--font-caption);
+  font-size: var(--text-caption);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: var(--smoked-mineral);
+}
+
+.contact-channel__value {
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  color: var(--deep-petrol-teal);
+}
+
+.before-booking {
+  margin-top: var(--space-2xl);
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--border);
+}
+
+.before-booking__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: var(--space-md);
+}
+
+.before-booking__list a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--deep-petrol-teal);
+  font-family: var(--font-body);
+}
+
+.before-booking__list a::before {
+  content: '→';
+  transition: transform var(--transition);
+}
+
+.before-booking__list a:hover::before {
+  transform: translateX(4px);
+}

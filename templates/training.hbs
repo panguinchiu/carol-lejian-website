@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+{{> head}}
+</head>
+<body class="page-training">
+<a class="skip-link" href="#main">跳至主內容</a>
+{{> header}}
+
+<main id="main">
+
+  <section class="training-hero">
+    <div class="container training-hero__inner">
+      <span class="eyebrow eyebrow-on-dark">— 學習與培訓 —</span>
+      <h1 class="training-hero__title" style="margin-top: var(--space-sm);">
+        {{#each heroTitle}}<span>{{this}}</span>{{/each}}
+      </h1>
+      <p class="training-hero__subtitle">{{heroSubtitle}}</p>
+      <div class="poetic-text poetic-text--on-dark" style="opacity: 0.7;">
+        {{{poeticLines heroIntro}}}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container container--narrow">
+      {{#each sections}}
+        <article class="training-section reveal">
+          <span class="training-section__number">{{number}}</span>
+          <h2 class="training-section__title">{{title}}</h2>
+          <div class="poetic-text poetic-text--lg">
+            {{{poeticLines content}}}
+          </div>
+        </article>
+      {{/each}}
+    </div>
+  </section>
+
+  <!-- Atmospheric band: mountain / journey -->
+  <div class="atmospheric-band atmospheric-band--mountain reveal reveal--atmospheric" aria-hidden="true"></div>
+
+  <section class="section--sm section--ivory-light">
+    <div class="container container--narrow">
+      <div class="training-info-card reveal">
+        <span class="eyebrow">— 四 課程形式 —</span>
+        <dl class="spec-list" style="margin-top: var(--space-md);">
+          <dt>形式</dt>
+          <dd>{{courseInfo.format}}</dd>
+          <dt>地點</dt>
+          <dd>{{courseInfo.location}}</dd>
+          <dt>說明</dt>
+          <dd>
+            {{#each courseInfo.details}}
+              <p>{{this}}</p>
+            {{/each}}
+          </dd>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container container--narrow">
+      <div class="reveal">
+        <span class="eyebrow">— 五 適合對象 —</span>
+
+        <p style="margin-top: var(--space-md); color: var(--smoked-mineral);">適合你，如果：</p>
+        <ul class="experience-list">
+          {{#each audience.ifYou}}
+            <li>{{this}}</li>
+          {{/each}}
+        </ul>
+
+        <p style="margin-top: var(--space-lg); color: var(--smoked-mineral);">也適合：</p>
+        <ul class="experience-list">
+          {{#each audience.alsoFor}}
+            <li>{{this}}</li>
+          {{/each}}
+        </ul>
+      </div>
+
+      <div class="reveal reveal--delay-1" style="margin-top: var(--space-2xl);">
+        <span class="eyebrow">— 六 進階銜接 —</span>
+        <div class="poetic-text poetic-text--lg" style="margin-top: var(--space-md);">
+          {{{poeticLines advancedNote}}}
+        </div>
+      </div>
+
+      <div class="reveal reveal--delay-2" style="margin-top: var(--space-2xl);">
+        <span class="eyebrow">— 七 開課時間 —</span>
+        <div class="poetic-text poetic-text--lg" style="margin-top: var(--space-md);">
+          {{{poeticLines schedule.content}}}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--ivory-light">
+    <div class="container container--narrow" style="text-align: center;">
+      <h2 class="section-title" style="font-family: var(--font-display); font-size: clamp(1.6rem, 3vw, 2.25rem);">{{ctaTitle}}</h2>
+      <div class="poetic-text poetic-text--center" style="margin-top: var(--space-md); font-size: clamp(1.1rem, 1.6vw, 1.3rem);">
+        {{{poeticLines ctaContent}}}
+      </div>
+      <a href="/contact.html" class="btn btn--primary" style="margin-top: var(--space-lg);">
+        聯繫 Carol
+        <span class="btn__arrow" aria-hidden="true">→</span>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": "NGH 催眠證照實體培訓",
+  "description": "{{heroSubtitle}}",
+  "provider": {
+    "@type": "ProfessionalService",
+    "name": "{{global.brandName}}"
+  },
+  "courseMode": "在地實體",
+  "location": "{{courseInfo.location}}"
+}
+</script>
+
+{{> footer}}
+</body>
+</html>

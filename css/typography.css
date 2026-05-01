@@ -1,0 +1,98 @@
+.display {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: var(--ls-tight);
+  line-height: var(--lh-tight);
+}
+
+.eyebrow {
+  font-family: var(--font-caption);
+  font-size: var(--text-caption);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: var(--smoked-mineral);
+  font-weight: 400;
+}
+
+.eyebrow-on-dark {
+  color: var(--warm-silver);
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: var(--text-h2);
+  font-weight: 400;
+  line-height: var(--lh-tight);
+  margin-bottom: var(--space-md);
+  letter-spacing: var(--ls-tight);
+}
+
+.section-title-cn {
+  font-family: var(--font-body);
+  font-size: var(--text-h2);
+  font-weight: 300;
+  line-height: var(--lh-tight);
+  margin-bottom: var(--space-md);
+  letter-spacing: var(--ls-normal);
+}
+
+/* Carol's poetic broken-line text — preserved exactly as written */
+.poetic-text {
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  line-height: var(--lh-relaxed);
+  letter-spacing: var(--ls-normal);
+  color: var(--text-primary);
+  font-weight: 300;
+  max-width: var(--container-text);
+}
+
+.poetic-text p {
+  margin: 0 0 0.1em;
+}
+
+.poetic-text .stanza-break {
+  height: 0.7em;
+  margin: 0;
+}
+
+.poetic-text--center {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.poetic-text--lg {
+  font-size: clamp(0.94rem, 1.36vw, 1.15rem);
+  line-height: 1.6;
+  font-weight: 200;
+}
+
+.poetic-text--on-dark {
+  color: var(--text-on-dark);
+}
+
+.aeo-text {
+  font-family: var(--font-body);
+  font-size: var(--text-small);
+  line-height: 1.9;
+  color: var(--text-secondary);
+  max-width: 760px;
+  letter-spacing: var(--ls-normal);
+}
+
+.lede {
+  font-family: var(--font-body);
+  font-size: clamp(1.1rem, 1.6vw, 1.35rem);
+  line-height: 1.9;
+  color: var(--text-primary);
+  max-width: var(--container-text);
+}
+
+.quote {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  line-height: 1.5;
+  letter-spacing: var(--ls-tight);
+  color: var(--text-primary);
+}

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+{{> head}}
+</head>
+<body class="page-qhht">
+<a class="skip-link" href="#main">跳至主內容</a>
+{{> header}}
+
+<main id="main">
+
+  <header class="page-hero">
+    <div class="container">
+      <span class="page-hero__eyebrow">關於量子催眠</span>
+      <h1 class="page-hero__title">什麼是 QHHT 量子催眠？</h1>
+      <p class="page-hero__subtitle">{{aeoDefinition}}</p>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container container--narrow">
+      {{#each sections}}
+        <div class="qhht-section reveal">
+          <h2 class="qhht-section__title">{{title}}</h2>
+          <div class="poetic-text poetic-text--lg">
+            {{{poeticLines content}}}
+          </div>
+        </div>
+      {{/each}}
+    </div>
+  </section>
+
+  <div class="mid-quote reveal">
+    <div class="container">
+      <p class="mid-quote__text">
+        {{#each midQuote}}
+          <span>{{this}}</span>
+        {{/each}}
+      </p>
+    </div>
+  </div>
+
+  <section class="section section--ivory-light">
+    <div class="container container--narrow">
+      <div class="reveal">
+        <span class="eyebrow">— 比較 —</span>
+        <h2 class="qhht-section__title" style="margin-top: var(--space-sm);">與古典（傳統）催眠有何不同</h2>
+        <div class="poetic-text poetic-text--lg">
+          {{{poeticLines comparisonIntro}}}
+        </div>
+      </div>
+
+      <div class="compare-pair reveal reveal--delay-1">
+        <div class="compare-card">
+          <p class="compare-card__label">{{comparisonClassical.title}}</p>
+          <div class="poetic-text">
+            {{{poeticLines comparisonClassical.content}}}
+          </div>
+        </div>
+        <div class="compare-card compare-card--qhht">
+          <p class="compare-card__label">{{comparisonQhht.title}}</p>
+          <div class="poetic-text">
+            {{{poeticLines comparisonQhht.content}}}
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal reveal--delay-2" style="margin-top: var(--space-2xl);">
+        <span class="eyebrow">— 對照 —</span>
+        <h3 class="section-title-cn" style="margin-top: var(--space-sm); font-size: var(--text-h3);">本質的差異</h3>
+        <table class="compare-table">
+          <thead>
+            <tr>
+              {{#each comparisonTable.headers}}<th>{{this}}</th>{{/each}}
+            </tr>
+          </thead>
+          <tbody>
+            {{#each comparisonTable.rows}}
+              <tr>
+                {{#each this}}<td>{{this}}</td>{{/each}}
+              </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="qhht-closing reveal">
+    <div class="container">
+      <p class="qhht-closing__text">
+        {{#each closingQuote}}
+          <span>{{this}}</span>
+        {{/each}}
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container container--narrow" style="text-align: center;">
+      <a href="/contact.html" class="btn btn--primary">
+        準備好預約
+        <span class="btn__arrow" aria-hidden="true">→</span>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+{{> footer}}
+</body>
+</html>

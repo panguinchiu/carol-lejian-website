@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+{{> head}}
+</head>
+<body class="page-contact">
+<a class="skip-link" href="#main">跳至主內容</a>
+{{> header}}
+
+<main id="main">
+
+  <header class="page-hero">
+    <div class="container">
+      <span class="page-hero__eyebrow">預約聯繫</span>
+      <h1 class="page-hero__title">準備好開始了嗎？</h1>
+      <div class="poetic-text poetic-text--lg" style="margin-top: var(--space-md);">
+        {{{poeticLines intro}}}
+      </div>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="reveal">
+          <span class="eyebrow">— 聯繫方式 —</span>
+
+          {{#each channels}}
+            {{#if value}}
+              <div class="contact-channel">
+                <span class="contact-channel__label">{{label}}</span>
+                {{#if url}}
+                  <a class="contact-channel__value" href="{{url}}" target="_blank" rel="noopener">{{value}}</a>
+                {{else}}
+                  <span class="contact-channel__value">{{value}}</span>
+                {{/if}}
+              </div>
+            {{/if}}
+          {{/each}}
+
+          <div class="before-booking">
+            <span class="eyebrow">— {{beforeBooking.title}} —</span>
+            <ul class="before-booking__list">
+              {{#each beforeBooking.links}}
+                <li><a href="{{url}}">{{label}}</a></li>
+              {{/each}}
+            </ul>
+          </div>
+        </div>
+
+        <div class="reveal reveal--delay-1">
+          <span class="eyebrow">— 預約須知 —</span>
+          <dl class="spec-list" style="margin-top: var(--space-md);">
+            <dt>地點</dt>
+            <dd>{{specs.location}}</dd>
+            <dt>形式</dt>
+            <dd>{{specs.format}}</dd>
+            <dt>預留時段</dt>
+            <dd>{{specs.timeSlot}}</dd>
+            <dt>建議</dt>
+            <dd>{{specs.reminder}}</dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "name": "預約聯繫 — {{global.brandName}}",
+  "mainEntity": {
+    "@type": "ProfessionalService",
+    "name": "{{global.brandName}}",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "台北市",
+      "addressCountry": "TW"
+    },
+    "sameAs": ["{{global.igUrl}}"]
+  }
+}
+</script>
+
+{{> footer}}
+</body>
+</html>
