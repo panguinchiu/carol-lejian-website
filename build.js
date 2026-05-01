@@ -5,6 +5,16 @@ const Handlebars = require('handlebars');
 
 const ROOT = __dirname;
 const DIST = path.join(ROOT, 'dist');
+const BASE_PATH = (process.env.BASE_PATH || '').replace(/\/+$/, '');
+
+function applyBasePath(text) {
+  if (!BASE_PATH) return text;
+  // href="/..." or src="/..." (not href="//...") — HTML
+  text = text.replace(/(href|src)="\/(?!\/)/g, `$1="${BASE_PATH}/`);
+  // url(/...) in CSS / inline style — also skip url(//...)
+  text = text.replace(/url\((['"]?)\/(?!\/)/g, (_m, q) => `url(${q}${BASE_PATH}/`);
+  return text;
+}
 
 const content = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/content.json'), 'utf8'));
 
@@ -59,11 +69,20 @@ pages.forEach(({ template, output, page, data }) => {
     page,
     ...data,
   });
-  fs.writeFileSync(path.join(DIST, output), html, 'utf8');
+  fs.writeFileSync(path.join(DIST, output), applyBasePath(html), 'utf8');
   console.log('  ✓', output);
 });
 
-['css', 'js', 'assets', 'admin'].forEach(dir => {
+// CSS/JS: copy with BASE_PATH transform applied
+['css', 'js'].forEach(dir => {
+  const src = path.join(ROOT, dir);
+  if (fs.existsSync(src)) {
+    copyDirSync(src, path.join(DIST, dir), { transform: applyBasePath, exts: ['.css', '.js'] });
+  }
+});
+
+// assets, admin: copy as-is (binary safe)
+['assets', 'admin'].forEach(dir => {
   const src = path.join(ROOT, dir);
   if (fs.existsSync(src)) {
     copyDirSync(src, path.join(DIST, dir));
@@ -81,13 +100,19 @@ fs.copyFileSync(path.join(ROOT, 'data/content.json'), path.join(dataOut, 'conten
 
 console.log('\n✅ Build complete → dist/');
 
-function copyDirSync(src, dest) {
+function copyDirSync(src, dest, opts = {}) {
   if (!fs.existsSync(src)) return;
   fs.mkdirSync(dest, { recursive: true });
   fs.readdirSync(src, { withFileTypes: true }).forEach(entry => {
     const s = path.join(src, entry.name);
     const d = path.join(dest, entry.name);
-    if (entry.isDirectory()) copyDirSync(s, d);
-    else fs.copyFileSync(s, d);
+    if (entry.isDirectory()) {
+      copyDirSync(s, d, opts);
+    } else if (opts.transform && opts.exts && opts.exts.includes(path.extname(entry.name))) {
+      const text = fs.readFileSync(s, 'utf8');
+      fs.writeFileSync(d, opts.transform(text), 'utf8');
+    } else {
+      fs.copyFileSync(s, d);
+    }
   });
 }
